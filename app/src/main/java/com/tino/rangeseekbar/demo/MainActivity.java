@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         fragments.clear();
-        fragments.add(new SingleSeekBarFragment());
         fragments.add(new RangeSeekBarFragment());
+        fragments.add(new SingleSeekBarFragment());
         fragments.add(new StepsSeekBarFragment());
         fragments.add(new VerticalSeekBarFragment());
 

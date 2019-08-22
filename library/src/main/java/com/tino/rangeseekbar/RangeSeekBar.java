@@ -295,7 +295,7 @@ public class RangeSeekBar extends View {
         progressLeft = maxThumbWidth / 2 + getPaddingLeft();
         progressRight = w - maxThumbWidth / 2 - getPaddingRight();
         progressWidth = progressRight - progressLeft;
-        progressDefaultDstRect.set(getProgressLeft(), getProgressTop(), getProgressRight(), getProgressBottom());
+        progressDefaultDstRect.set(getProgressLeft() - maxThumbWidth / 2, getProgressTop(), getProgressRight() + maxThumbWidth / 2, getProgressBottom());
         progressPaddingRight = w - progressRight;
         //default value
         if (progressRadius <= 0) {

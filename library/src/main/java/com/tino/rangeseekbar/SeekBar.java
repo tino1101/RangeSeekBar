@@ -159,8 +159,8 @@ public class SeekBar {
     protected void onSizeChanged(int x, int y) {
         initVariables();
         initBitmap();
-        left = (int) (x - getThumbScaleWidth() / 2);
-        right = (int) (x + getThumbScaleWidth() / 2);
+        left = isLeft ? (int)(x - getThumbScaleWidth()) : x;
+        right = isLeft ? x : (int)(x + getThumbScaleWidth());
         top = y - getThumbHeight() / 2;
         bottom = y + getThumbHeight() / 2;
     }
@@ -281,7 +281,7 @@ public class SeekBar {
             realIndicatorHeight = indicatorHeight;
         }
 
-        indicatorRect.left = (int) (scaleThumbWidth / 2f - realIndicatorWidth / 2f);
+        indicatorRect.left = isLeft ? scaleThumbWidth - realIndicatorWidth : 0;
         indicatorRect.top = bottom - realIndicatorHeight - scaleThumbHeight - indicatorMargin;
         indicatorRect.right = indicatorRect.left + realIndicatorWidth;
         indicatorRect.bottom = indicatorRect.top + realIndicatorHeight;
