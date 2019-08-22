@@ -14,6 +14,11 @@ class RangeSeekBarFragment : BaseFragment() {
         sb_range_3?.setRange(-1000f, 1000f, 1f)
         sb_range_3?.setProgress(-300f, 300f)
         sb_range_3?.setIndicatorTextDecimalFormat("0")
+        sb_range_3.leftSeekBar.thumbDrawableId=R.drawable.seek_bar_thumb_left
+        sb_range_3.leftSeekBar.indicatorDrawableId=R.drawable.seek_bar_indicator_left
+        sb_range_3.rightSeekBar.thumbDrawableId=R.drawable.seek_bar_thumb_right
+        sb_range_3.rightSeekBar.indicatorDrawableId=R.drawable.seek_bar_indicator_right
+
     }
 
     private fun changeSeekBarThumb(seekbar: SeekBar, value: Float) {
