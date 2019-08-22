@@ -590,23 +590,24 @@ public class RangeSeekBar extends View {
                 touchDownX = getEventX(event);
                 touchDownY = getEventY(event);
                 if (seekBarMode == SEEKBAR_MODE_RANGE) {
-                    if (rightSB.currPercent >= 1 && leftSB.collide(getEventX(event), getEventY(event))) {
+                    if (leftSB.collide(getEventX(event), getEventY(event))) {
                         currTouchSB = leftSB;
                         scaleCurrentSeekBarThumb();
                     } else if (rightSB.collide(getEventX(event), getEventY(event))) {
                         currTouchSB = rightSB;
                         scaleCurrentSeekBarThumb();
                     } else {
-                        float performClick = (touchDownX - getProgressLeft()) * 1f / (progressWidth);
-                        float distanceLeft = Math.abs(leftSB.currPercent - performClick);
-                        float distanceRight = Math.abs(rightSB.currPercent - performClick);
-                        if (distanceLeft < distanceRight) {
-                            currTouchSB = leftSB;
-                        } else {
-                            currTouchSB = rightSB;
-                        }
-                        performClick = calculateCurrentSeekBarPercent(touchDownX);
-                        currTouchSB.slide(performClick);
+                        return false;//控制点击thumb外部区域不响应事件
+//                        float performClick = (touchDownX - getProgressLeft()) * 1f / (progressWidth);
+//                        float distanceLeft = Math.abs(leftSB.currPercent - performClick);
+//                        float distanceRight = Math.abs(rightSB.currPercent - performClick);
+//                        if (distanceLeft < distanceRight) {
+//                            currTouchSB = leftSB;
+//                        } else {
+//                            currTouchSB = rightSB;
+//                        }
+//                        performClick = calculateCurrentSeekBarPercent(touchDownX);
+//                        currTouchSB.slide(performClick);
                     }
                 } else {
                     currTouchSB = leftSB;
